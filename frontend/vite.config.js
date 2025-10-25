@@ -5,5 +5,9 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 3001
+  },
+  base: '/USDC/', // 重要：添加这一行
+  build: {
+    outDir: 'dist'
   }
 })
