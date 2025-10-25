@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     port: 3001
   },
-  base: '/USDC/', // 重要：添加这一行
+  base: '/USDC/', // 🔥 改成你的仓库名
   build: {
     outDir: 'dist'
   }
