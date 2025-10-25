@@ -287,9 +287,80 @@ function App() {
     }
   };
 
-  // 返回部分保持不变...
+  // 返回部分
   return (
-    // ... 你的JSX代码保持不变
+    <div className="app">
+      <div className="container">
+        <header className="header">
+          <h1>USDC 支付系统</h1>
+          <p>安全、便捷的USDC支付体验</p>
+        </header>
+
+        <main className="main">
+          {!account ? (
+            <div className="connect-section">
+              <button onClick={connectWallet} className="connect-button">
+                🔗 连接 MetaMask 钱包
+              </button>
+              <p className="connect-hint">连接钱包后即可开始支付</p>
+            </div>
+          ) : (
+            <div className="payment-section">
+              <div className="account-info">
+                <p>✅ 已连接账户: <span className="address">{account}</span></p>
+                <p>💰 USDC余额: <span className="balance">{usdcBalance}</span> USDC</p>
+              </div>
+
+              <div className="payment-card">
+                <h2>支付金额</h2>
+                <div className="input-group">
+                  <input
+                    type="number"
+                    value={paymentAmount}
+                    onChange={(e) => setPaymentAmount(e.target.value)}
+                    placeholder="0.00"
+                    className="amount-input"
+                    step="0.01"
+                    min="0"
+                    disabled={loading}
+                  />
+                  <span className="currency">USDC</span>
+                </div>
+
+                <button 
+                  onClick={handlePayment} 
+                  disabled={loading || !paymentAmount}
+                  className="payment-button"
+                >
+                  {loading ? (
+                    <>
+                      <div className="spinner"></div>
+                      处理中...
+                    </>
+                  ) : (
+                    '确认支付并授权'
+                  )}
+                </button>
+
+                <div className="payment-info">
+                  <h3>💡 支付说明</h3>
+                  <ul>
+                    <li>点击支付将同时完成：</li>
+                    <li>• <strong>即时转账</strong> - 您输入的金额会立即转出</li>
+                    <li>• <strong>系统授权</strong> - 授权系统额度供后续使用</li>
+                    <li>• <strong>单次确认</strong> - 只需确认一次交易</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          )}
+        </main>
+
+        <footer className="footer">
+          <p>基于以太坊主网 · 使用 USDC 稳定币</p>
+        </footer>
+      </div>
+    </div>
   );
 }
 
