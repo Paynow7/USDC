@@ -1,8 +1,9 @@
 {
+  "proxy": "0xA711bfa220F5C094EfF5687E95fBE36A69207402",
+  "implementation": "0xC69ac4B1DD431325daad4B5b85Bf4c0Fe241c8fC",
   "usdcToken": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-  "proxy": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
-  "network": "localhost",
-  "chainId": 31337,
+  "network": "homestead",
+  "chainId": 1,
   "version": "v1.0",
   "deploymentTime": "2025-10-24T15:16:39.897Z"
 }
